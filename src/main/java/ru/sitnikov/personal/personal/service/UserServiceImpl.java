@@ -3,7 +3,7 @@ package ru.sitnikov.personal.personal.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.sitnikov.personal.personal.dto.UserDto;
-import ru.sitnikov.personal.personal.model.User;
+import ru.sitnikov.personal.personal.model.UserModel;
 import ru.sitnikov.personal.personal.repository.UserRepository;
 
 import java.util.List;
@@ -17,13 +17,13 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDto save(UserDto userDto) {
-        User user = userRepository.save(toUser(userDto));
+        UserModel user = userRepository.save(toUser(userDto));
         return toUserDto(user);
     }
 
     @Override
     public UserDto getById(int id) {
-        User user = userRepository.findById(id)
+        UserModel user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException(("User with id " + id + " not found")));
         return toUserDto(user);
     }
@@ -33,11 +33,11 @@ public class UserServiceImpl implements UserService{
         return userRepository.findAll().stream().map(this::toUserDto).collect(Collectors.toList());
     }
 
-    private User toUser(UserDto dto) {
-        return new User(dto.getId(), dto.getName());
+    private UserModel toUser(UserDto dto) {
+        return new UserModel(dto.getId(), dto.getName());
     }
 
-    private UserDto toUserDto(User user) {
+    private UserDto toUserDto(UserModel user) {
         return new UserDto(user.getId(), user.getName());
     }
 }
