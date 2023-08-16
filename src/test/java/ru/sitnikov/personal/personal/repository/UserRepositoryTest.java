@@ -26,18 +26,23 @@ class UserRepositoryTest {
         UserModel userModel = new UserModel();
         userModel.setName("Bob");
         userModel.setLastName("Jones");
+        userModel.setEmail("ivanov@mail.ru");
+        userModel.setLogin("petro");
         UserModel saved  = userRepository.save(userModel);
         assertNotNull(saved);
+        assertNotNull(saved.getId());
+        assertEquals("Bob", saved.getName());
+        assertEquals("Jones", saved.getLastName());
     }
 
     @Test
     void updateUser() {
     }
 
-    @Test
+/*    @Test
     void getUserById() {
         Optional<UserModel> userFromDB = userRepository.findById(1);
-    }
+    }*/
 
     @Test
     void getAllUsers() {

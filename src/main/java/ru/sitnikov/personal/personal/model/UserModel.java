@@ -10,16 +10,18 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "users",
+@Table(name = "users")
+/*@Table(name = "users",
         uniqueConstraints = {
                 @UniqueConstraint(name = "uniqEmail", columnNames = "email"),
                 @UniqueConstraint(name = "uniqLogin", columnNames = "login"),
-        })
+        })*/
 public class UserModel {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq_generator")
-    @SequenceGenerator(name = "user_seq_generator", sequenceName = "user_seq", allocationSize = 1)
+/*    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq_generator")
+    @SequenceGenerator(name = "user_seq_generator", sequenceName = "user_seq", allocationSize = 1)*/
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "name", nullable = false)
     private String name;
