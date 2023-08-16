@@ -1,0 +1,1 @@
+insert into users (name, last_name, birth_date, position, email, login) values('Ivan', 'Petrov', '1999-01-01', 'ingener', 'ivanpetrov@mail.ru', 'ivanpetrov')
