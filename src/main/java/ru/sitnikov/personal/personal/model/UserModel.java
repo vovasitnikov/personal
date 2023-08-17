@@ -19,9 +19,9 @@ import java.time.LocalDate;
 public class UserModel {
     @Id
     @Column(name = "id")
-/*    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq_generator")
-    @SequenceGenerator(name = "user_seq_generator", sequenceName = "user_seq", allocationSize = 1)*/
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq_generator")
+    @SequenceGenerator(name = "user_seq_generator", sequenceName = "user_seq", allocationSize = 1)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "name", nullable = false)
     private String name;

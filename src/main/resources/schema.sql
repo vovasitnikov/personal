@@ -7,3 +7,9 @@ position varchar,
 email varchar,
 login varchar
 );
+
+create table if not exists CONTRACTS (
+id serial primary key,
+cipher_contract varchar not null,
+name_contract varchar not null,
+);

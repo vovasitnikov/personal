@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @DataJpaTest
 @ActiveProfiles("test")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-@Sql("/data.sql")
 class UserRepositoryTest {
 
     @Autowired
@@ -37,12 +36,22 @@ class UserRepositoryTest {
 
     @Test
     void updateUser() {
+        Optional<UserModel> userToUpdate = userRepository.findById(1);
+        assertNotNull(userToUpdate);
+        UserModel userModelToUpdate = userToUpdate.get();
+        userModelToUpdate.setName("new name");
+        UserModel saved  = userRepository.save(userModelToUpdate);
+        assertNotNull(saved);
+        Optional<UserModel> userToUpdate2 = userRepository.findById(1);
+        assertEquals("new name", userToUpdate2.get().getName());
     }
 
-/*    @Test
+    @Test
     void getUserById() {
         Optional<UserModel> userFromDB = userRepository.findById(1);
-    }*/
+        assertNotNull(userFromDB);
+        assertEquals("Ivan", userFromDB.get().getName());
+    }
 
     @Test
     void getAllUsers() {
@@ -51,4 +60,5 @@ class UserRepositoryTest {
     @Test
     void deleteUser() {
     }
+
 }

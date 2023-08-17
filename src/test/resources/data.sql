@@ -1,1 +1,2 @@
 insert into users (name, last_name, birth_date, position, email, login) values('Ivan', 'Petrov', '1999-01-01', 'ingener', 'ivanpetrov@mail.ru', 'ivanpetrov')
+insert into contracts (cipher_contract, name_contract) values('0042.001', 'Киринская ГКМ')
