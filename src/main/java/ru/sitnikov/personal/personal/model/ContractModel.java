@@ -20,10 +20,10 @@ public class ContractModel {
     @SequenceGenerator(name = "contract_seq_generator", sequenceName = "contract_seq", allocationSize = 1)
     private Integer id;
 
-    @Column(name = "cipher_contract")
+    @Column(name = "cipher_contract", nullable = false)
     private String cipherContract;
 
-    @Column(name = "name_contract")
+    @Column(name = "name_contract", nullable = false)
     private String nameContract;
 
 }

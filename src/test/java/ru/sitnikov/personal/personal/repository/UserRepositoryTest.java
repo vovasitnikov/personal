@@ -1,5 +1,6 @@
 package ru.sitnikov.personal.personal.repository;
 
+import org.h2.engine.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -8,6 +9,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import ru.sitnikov.personal.personal.model.UserModel;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -55,10 +57,15 @@ class UserRepositoryTest {
 
     @Test
     void getAllUsers() {
+        List<UserModel> modelList = userRepository.findAll();
+        assertFalse(modelList.isEmpty());
     }
 
     @Test
     void deleteUser() {
+        userRepository.deleteById(1);
+        Optional<UserModel> userModel = userRepository.findById(1);
+        assertTrue(userModel.isEmpty());
     }
 
 }
