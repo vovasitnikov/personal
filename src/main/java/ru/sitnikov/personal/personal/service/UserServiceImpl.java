@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService{
     }
 
     private UserModel toUser(UserDto dto) {
-        return new UserModel(dto.getId(), dto.getName());
+        return new UserModel(dto.getId(), dto.getName(), dto.getLastName());
     }
 
     private UserDto toUserDto(UserModel user) {

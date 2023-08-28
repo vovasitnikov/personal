@@ -39,4 +39,10 @@ public class UserModel {
         this.id = id;
         this.name = name;
     }
+
+    public UserModel(Integer id, String name, String lastName) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+    }
 }
