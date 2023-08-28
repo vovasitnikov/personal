@@ -1,6 +1,7 @@
 package ru.sitnikov.personal.personal.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.sitnikov.personal.personal.dto.UserDto;
 import ru.sitnikov.personal.personal.service.UserServiceImpl;
@@ -15,7 +16,7 @@ public class UserController {
     private final UserServiceImpl userService;
 
     @PostMapping
-    public UserDto createUser(@RequestBody UserDto user) {
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto user) {
         return userService.save(user);
     }
 
@@ -24,7 +25,7 @@ public class UserController {
         return userService.getById(id);
     }
 
-    @GetMapping
+    @PostMapping("/all")
     public List<UserDto> getAll() {
         return userService.getAll();
     }
