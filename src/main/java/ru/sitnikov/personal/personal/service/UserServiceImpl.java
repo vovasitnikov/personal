@@ -22,10 +22,20 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserDto getById(int id) {
+    public UserDto getById(Long id) {
         UserModel user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException(("User with id " + id + " not found")));
         return toUserDto(user);
+    }
+
+    @Override
+    public void update(UserDto userDto) {
+        userRepository.save(toUser(userDto));
+    }
+
+    @Override
+    public void delete(Long id) {
+        userRepository.deleteById(id);
     }
 
     @Override

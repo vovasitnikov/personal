@@ -38,19 +38,19 @@ class UserRepositoryTest {
 
     @Test
     void updateUser() {
-        Optional<UserModel> userToUpdate = userRepository.findById(1);
+        Optional<UserModel> userToUpdate = userRepository.findById(1L);
         assertNotNull(userToUpdate);
         UserModel userModelToUpdate = userToUpdate.get();
         userModelToUpdate.setName("new name");
         UserModel saved  = userRepository.save(userModelToUpdate);
         assertNotNull(saved);
-        Optional<UserModel> userToUpdate2 = userRepository.findById(1);
+        Optional<UserModel> userToUpdate2 = userRepository.findById(1L);
         assertEquals("new name", userToUpdate2.get().getName());
     }
 
     @Test
     void getUserById() {
-        Optional<UserModel> userFromDB = userRepository.findById(1);
+        Optional<UserModel> userFromDB = userRepository.findById(1L);
         assertNotNull(userFromDB);
         assertEquals("Ivan", userFromDB.get().getName());
     }
@@ -63,8 +63,8 @@ class UserRepositoryTest {
 
     @Test
     void deleteUser() {
-        userRepository.deleteById(1);
-        Optional<UserModel> userModel = userRepository.findById(1);
+        userRepository.deleteById(1L);
+        Optional<UserModel> userModel = userRepository.findById(1L);
         assertTrue(userModel.isEmpty());
     }
 

@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.sitnikov.personal.personal.model.UserModel;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserModel, Integer> {
+public interface UserRepository extends JpaRepository<UserModel, Long> {
 }
