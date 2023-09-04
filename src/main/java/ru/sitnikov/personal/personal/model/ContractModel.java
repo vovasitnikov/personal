@@ -18,7 +18,7 @@ public class ContractModel {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contract_seq_generator")
     @SequenceGenerator(name = "contract_seq_generator", sequenceName = "contract_seq", allocationSize = 1)
-    private Integer id;
+    private Long id;
 
     @Column(name = "cipher_contract", nullable = false)
     private String cipherContract;
