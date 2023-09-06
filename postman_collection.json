@@ -1,143 +1,396 @@
 {
 	"info": {
-		"_postman_id": "30b65f92-ab91-420c-b94a-29e46e79583f",
-		"name": "New Collection",
+		"_postman_id": "f7ab1216-765d-40b9-9fbe-97c5eb1ab9a7",
+		"name": "postman_collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21003872"
 	},
 	"item": [
 		{
-			"name": "getAllUsers",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/users/all",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"all"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getUserById",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "",
-							"value": "",
-							"type": "text",
-							"disabled": true
+			"name": "USER",
+			"item": [
+				{
+					"name": "getAllUsers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"all"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/users/14",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"14"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "addUser",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n     \"name\": \"VLAD\",\r\n    \"lastName\": \"Sitnikov\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "getUserById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/users/add",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"add"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "updateUser",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": 14,\r\n    \"name\": \"YuraSuper\",\r\n    \"lastName\": \"Sitnikov\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "deleteUserById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"delete",
+								"1"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/users/update",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"update"
-					]
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"YuraSuper\",\r\n    \"lastName\": \"Sitnikov\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Новый чувак\",\r\n    \"lastName\": \"Моряк\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"add"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "deleteUserById",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/users/delete/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"delete",
-						"1"
-					]
+			"name": "CONTRACT",
+			"item": [
+				{
+					"name": "addContract",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cipherContract\": \"0108\",\r\n    \"nameContract\": \"Южно - Киринская ГКМ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/contracts/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contracts",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getContractById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/contracts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contracts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllContracts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/contracts/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contracts",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateContract",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": 2,\r\n        \"cipherContract\": \"4634\",\r\n        \"nameContract\": \"УКПГ-2С\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/contracts/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contracts",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteContract",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/contracts/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contracts",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "BUSINES TRIP",
+			"item": [
+				{
+					"name": "addbusinesTrip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"beginTrip\": \"2023-01-01\",\r\n    \"endTrip\": \"2023-01-31\",\r\n    \"userModel\": {\r\n        \"id\": 2,\r\n        \"name\": \"Новый чувак\",\r\n        \"lastName\": \"Моряк\",\r\n        \"birthDate\": null,\r\n        \"position\": null,\r\n        \"email\": null,\r\n        \"login\": null\r\n    },\r\n    \"contractModel\": {\r\n        \"id\": 2,\r\n        \"cipherContract\": \"4634\",\r\n        \"nameContract\": \"УКПГ-2С\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/businesTrip/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"businesTrip",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBusinesTripById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/businesTrip/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"businesTrip",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllBusinesTrip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/businesTrip/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"businesTrip",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateBusinesTrip",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"beginTrip\": \"2023-08-01\",\r\n    \"endTrip\": \"2023-08-31\",\r\n    \"userModel\": {\r\n        \"id\": 2,\r\n        \"name\": \"Новый чувак\",\r\n        \"lastName\": \"Моряк\",\r\n        \"birthDate\": null,\r\n        \"position\": null,\r\n        \"email\": null,\r\n        \"login\": null\r\n    },\r\n    \"contractModel\": {\r\n        \"id\": 2,\r\n        \"cipherContract\": \"4634\",\r\n        \"nameContract\": \"УКПГ-2С\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/businesTrip/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"businesTrip",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteBusinesTrip",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/businesTrip/delete/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"businesTrip",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

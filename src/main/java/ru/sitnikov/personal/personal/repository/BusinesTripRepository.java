@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.sitnikov.personal.personal.model.BusinesTripModel;
 
 @Repository
-public interface BusinesTripRepository extends JpaRepository<BusinesTripModel, Integer> {
+public interface BusinesTripRepository extends JpaRepository<BusinesTripModel, Long> {
 }

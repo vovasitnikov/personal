@@ -1,6 +1,5 @@
 package ru.sitnikov.personal.personal.controller;
 
-
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,25 +15,9 @@ import java.util.List;
 public class ContractController {
 
     private final ContractServiceImpl contractService;
-
     @PostMapping("/add")
     public ResponseEntity<ContractDto> createUser(@RequestBody ContractDto contract) {
         return ResponseEntity.ok(contractService.save(contract));
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity delete(@PathVariable("id") Long id) {
-        contractService.delete(id);
-        return new ResponseEntity(HttpStatus.OK);
-    }
-
-    @PutMapping("/update")
-    public ResponseEntity update(@RequestBody ContractDto contract) {
-        if (contract.getId() == null || contract.getId() == 0) {
-            return new ResponseEntity("У контракта нет айдишника", HttpStatus.NOT_ACCEPTABLE);
-        }
-        contractService.update(contract);
-        return new ResponseEntity(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -47,4 +30,19 @@ public class ContractController {
         return contractService.getAll();
     }
 
+
+    @PutMapping("/update")
+    public ResponseEntity update(@RequestBody ContractDto contract) {
+        if (contract.getId() == null || contract.getId() == 0) {
+            return new ResponseEntity("У контракта нет айдишника", HttpStatus.NOT_ACCEPTABLE);
+        }
+        contractService.update(contract);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity delete(@PathVariable("id") Long id) {
+        contractService.delete(id);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }

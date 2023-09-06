@@ -23,7 +23,7 @@ class ContractRepositoryTest {
 
     @Test
     void createUser() {
-        ContractModel contractModel = new ContractModel();
+        ContractModel contractModel = new ContractModel(dto.getId(), dto.getBeginTrip(), dto.getEndTrip(), dto.getUserModel(), dto.getContractModel());
         contractModel.setCipherContract("4200.001");
         contractModel.setNameContract("Киринская");
         ContractModel saved  = contractRepository.save(contractModel);
