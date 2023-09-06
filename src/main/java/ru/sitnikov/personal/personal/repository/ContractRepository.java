@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.sitnikov.personal.personal.model.ContractModel;
 
 @Repository
-public interface ContractRepository extends JpaRepository<ContractModel, Integer> {
+public interface ContractRepository extends JpaRepository<ContractModel, Long> {
 }

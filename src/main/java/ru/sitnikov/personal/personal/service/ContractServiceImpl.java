@@ -7,6 +7,7 @@ import ru.sitnikov.personal.personal.model.ContractModel;
 import ru.sitnikov.personal.personal.repository.ContractRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -22,22 +23,24 @@ public class ContractServiceImpl implements ContractService{
 
     @Override
     public void update(ContractDto contractDto) {
-
+        contractRepository.save(toContract(contractDto));
     }
 
     @Override
     public void delete(Long id) {
-
+        contractRepository.deleteById(id);
     }
 
     @Override
     public ContractDto getById(Long id) {
-        return null;
+        ContractModel contract = contractRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException(("Contract with id " + id + " not found")));
+        return toContractDto(contract);
     }
 
     @Override
     public List<ContractDto> getAll() {
-        return null;
+        return contractRepository.findAll().stream().map(this::toContractDto).collect(Collectors.toList());
     }
 
     private ContractModel toContract(ContractDto dto) {

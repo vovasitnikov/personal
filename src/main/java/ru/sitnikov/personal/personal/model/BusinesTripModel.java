@@ -20,7 +20,7 @@ public class BusinesTripModel {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "busines_trip_seq_generator")
     @SequenceGenerator(name = "busines_trip_seq_generator", sequenceName = "busines_trip_seq", allocationSize = 1)
-    private Integer id;
+    private Long id;
 
     @Column(name = "begin_trip")
     private LocalDate beginTrip;
