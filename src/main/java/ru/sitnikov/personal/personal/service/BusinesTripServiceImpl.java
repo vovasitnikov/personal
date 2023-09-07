@@ -3,9 +3,12 @@ package ru.sitnikov.personal.personal.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.sitnikov.personal.personal.dto.BusinesTripDto;
+import ru.sitnikov.personal.personal.dto.ContractDto;
 import ru.sitnikov.personal.personal.model.BusinesTripModel;
+import ru.sitnikov.personal.personal.model.ContractModel;
 import ru.sitnikov.personal.personal.repository.BusinesTripRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,7 +44,13 @@ public class BusinesTripServiceImpl implements BusinesTripService{
 
     @Override
     public List<BusinesTripDto> getAll() {
-        return businesTripRepository.findAll().stream().map(this::toBusinesTripDto).collect(Collectors.toList());
+        List<BusinesTripModel> all = businesTripRepository.findAll();
+        List<BusinesTripDto> allBusinesTripDto = new ArrayList<>();
+        for (BusinesTripModel businesTripModel : all) {
+            BusinesTripDto businesTripModelDto = toBusinesTripDto(businesTripModel);
+            allBusinesTripDto.add(businesTripModelDto);
+        }
+        return allBusinesTripDto;
     }
 
     private BusinesTripModel toBusinesTrip(BusinesTripDto dto) {

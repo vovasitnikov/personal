@@ -8,7 +8,6 @@ import ru.sitnikov.personal.personal.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -41,13 +40,23 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<UserDto> getAll() {
-/*        List<UserModel> all = userRepository.findAll();
+        List<UserModel> all = userRepository.findAll();
         List<UserDto> allUserDto = new ArrayList<>();
         for (UserModel userModel : all) {
             UserDto userDto = toUserDto(userModel);
             allUserDto.add(userDto);
-        }*/
-        return userRepository.findAll().stream().map(this::toUserDto).collect(Collectors.toList());
+        }
+        return allUserDto;
+    }
+
+    @Override
+    public List<UserModel> selectUsersByLastname(String lastname) {
+        return userRepository.selectUsersByLastname(lastname);
+    }
+
+    @Override
+    public List<UserModel> selectUsersByNameAndLastname(String name, String lastname) {
+        return userRepository.selectUsersByNameAndLastname(name, lastname);
     }
 
     private UserModel toUser(UserDto dto) {
