@@ -49,9 +49,9 @@ public class UserController {
     }
 
     @GetMapping("/selectByNameAndLastName")
-    public ResponseEntity selectUsersByNameAndLastname(@RequestBody String name, String lastName) {
+    public List<UserModel> selectUsersByNameAndLastname(@RequestBody UserModel userModel) {
 
-        return new ResponseEntity(userService.selectUsersByNameAndLastname(name, lastName), HttpStatus.OK);
+        return userService.selectUsersByNameAndLastname(userModel.getName(), userModel.getLastName());
     }
 
 
