@@ -120,7 +120,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Новый чувак\",\r\n    \"lastName\": \"Моряк\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Юрий\",\r\n    \"lastName\": \"Ситников\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -137,6 +137,59 @@
 							"path": [
 								"users",
 								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "selectUserByLastname",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/lastname/сит",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"lastname",
+								"сит"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "selectByNameAndLastName",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"name\": \"\",\r\n        \"lastName\": \"Ситников\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/selectByNameAndLastName",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"selectByNameAndLastName"
 							]
 						}
 					},
@@ -302,11 +355,18 @@
 				},
 				{
 					"name": "getBusinesTripById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "http://localhost:8080/businesTrip/3",
+							"raw": "http://localhost:8080/businesTrip/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -314,7 +374,7 @@
 							"port": "8080",
 							"path": [
 								"businesTrip",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -385,6 +445,67 @@
 								"businesTrip",
 								"delete",
 								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "selectByDate",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"beginTrip\": \"2022-01-01\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/businesTrip/selectByDate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"businesTrip",
+								"selectByDate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUserBusinesTrip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"lastName\": \"Sitn\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/businesTrip/getByUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"businesTrip",
+								"getByUser"
 							]
 						}
 					},

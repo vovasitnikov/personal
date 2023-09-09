@@ -1,7 +1,9 @@
 package ru.sitnikov.personal.personal.service;
 
 import ru.sitnikov.personal.personal.dto.BusinesTripDto;
+import ru.sitnikov.personal.personal.model.BusinesTripModel;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface BusinesTripService {
@@ -15,4 +17,8 @@ public interface BusinesTripService {
     BusinesTripDto getById(Long id);
 
     List<BusinesTripDto> getAll();
+
+    List<BusinesTripModel> selectBusinesTripsByDate(LocalDate beginTrip);
+
+    List<BusinesTripModel> selectBusinesTripUsersByLastname(String lastname);
 }

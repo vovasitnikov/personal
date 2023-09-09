@@ -8,6 +8,7 @@ import ru.sitnikov.personal.personal.model.BusinesTripModel;
 import ru.sitnikov.personal.personal.model.ContractModel;
 import ru.sitnikov.personal.personal.repository.BusinesTripRepository;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -51,6 +52,16 @@ public class BusinesTripServiceImpl implements BusinesTripService{
             allBusinesTripDto.add(businesTripModelDto);
         }
         return allBusinesTripDto;
+    }
+
+    @Override
+    public List<BusinesTripModel> selectBusinesTripsByDate(LocalDate beginTrip) {
+        return businesTripRepository.selectBusinesTripsByDate(beginTrip);
+    }
+
+    @Override
+    public List<BusinesTripModel> selectBusinesTripUsersByLastname(String lastname) {
+        return businesTripRepository.selectBusinesTripUsersByLastname(lastname);
     }
 
     private BusinesTripModel toBusinesTrip(BusinesTripDto dto) {

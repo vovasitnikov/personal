@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.sitnikov.personal.personal.dto.BusinesTripDto;
+import ru.sitnikov.personal.personal.model.BusinesTripModel;
+import ru.sitnikov.personal.personal.model.UserModel;
 import ru.sitnikov.personal.personal.service.BusinesTripServiceImpl;
 
 import java.util.List;
@@ -15,8 +17,9 @@ import java.util.List;
 public class BusinesTripController {
 
     private final BusinesTripServiceImpl businesTripService;
+
     @PostMapping("/add")
-    public ResponseEntity<BusinesTripDto> createUser(@RequestBody BusinesTripDto businesTrip) {
+    public ResponseEntity<BusinesTripDto> createBusinesTrip(@RequestBody BusinesTripDto businesTrip) {
         return ResponseEntity.ok(businesTripService.save(businesTrip));
     }
 
@@ -44,5 +47,17 @@ public class BusinesTripController {
     public ResponseEntity delete(@PathVariable("id") Long id) {
         businesTripService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+
+    @GetMapping("/selectByDate")
+    public List<BusinesTripModel> selectBusinesTripsByDate(@RequestBody BusinesTripModel businesTripModel) {
+        return businesTripService.selectBusinesTripsByDate(businesTripModel.getBeginTrip());
+    }
+
+    @PostMapping("/getByUser")
+    public ResponseEntity<List<BusinesTripModel>> selectBusinesTripUsersByLastname(@RequestBody UserModel userModel){
+
+        return ResponseEntity.ok( businesTripService.selectBusinesTripUsersByLastname(userModel.getLastName()));
     }
 }
